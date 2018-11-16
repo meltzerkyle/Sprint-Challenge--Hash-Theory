@@ -13,7 +13,6 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
   for (int i = 0; i < length; i++)
   {
     hash_table_insert(ht, weights[i], i);
-    // printf("%i\n", hash_table_retrieve(ht, weights[i]));
   }
 
   for (int i = 0; i < length; i++)
@@ -23,6 +22,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
     {
       answer->index_1 = temp;
       answer->index_2 = i;
+      destroy_hash_table(ht);
       return answer;
     }
   }
